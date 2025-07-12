@@ -1,73 +1,79 @@
-##🏗️ Construction Damage Chatbot
-A Gradio-powered AI web app that helps identify and repair construction-related damage from images. Just upload a photo of a damaged wall, pipe, or other structure, and the chatbot will analyze it using a pre-trained image model and suggest detailed repair solutions using a powerful LLM via Groq API.
+# 🏗️ Construction Damage Chatbot
 
-🚀 Live Demo: (Add your Hugging Face Space link here)
+A Gradio-powered AI web app that helps identify and suggest repairs for construction damage based on uploaded images. It uses a lightweight image classifier and an open-source LLM (via Groq API) to provide accurate, structured repair guidance.
 
-##🔧 Features
+🔗 Live Demo: https://huggingface.co/spaces/zarashahid/Construction_Damage_Chatbot
 
-Upload any image of construction damage (e.g., cracked wall, water leak, broken pipe)
+---
 
-Detects damage using MobileNetV2 image classification (offline)
+## 📌 Features
 
-Sends the detected damage to a powerful open-source LLM (like LLaMA 3 via Groq API)
+- **Upload image** of a cracked wall, pipe, or other construction-related damage
+- **Detect damage type** using MobileNetV2 image classification (offline)
+- **Get smart repair advice** from an LLM (like LLaMA 3 via Groq API):
+  - Type of damage
+  - Likely cause
+  - Suggested repair technique
+  - Tools required
+  - Estimated repair time
+  - Safety precautions
+- **Gradio UI** — beginner-friendly, no coding needed
 
-AI responds with:
+---
 
-Type of damage
+## 🧠 Technologies Used
 
-Likely cause
+- Python 3.8+
+- PyTorch & TorchVision
+- Gradio
+- Groq API (LLM inference)
+- Hugging Face Spaces (for deployment)
 
-Repair technique
+---
 
-Tools required
+## 🚀 Deployment on Hugging Face Spaces
 
-Estimated repair time
+1. Create a new Hugging Face Space (Gradio SDK).
+2. Upload:
+   - app.py
+   - requirements.txt
+   - README.md
+3. In Settings → Secrets, add:
+   - Name: GROQ_API_KEY
+   - Value: your actual Groq API key
 
-Safety tips
+The app will auto-deploy on commit.
 
-Simple Gradio web UI — works in Colab or on Hugging Face Spaces
+---
 
-##🧠 Technologies Used
+## 🛠️ Local Development
 
-Python
+Clone the repo and run it locally:
 
-PyTorch & TorchVision
-
-Gradio
-
-Groq API (LLM Inference)
-
-Hugging Face Spaces (Deployment)
-
-##📦 Installation (for local use)
-
-Clone this repo and install requirements:
-
+```bash
+git clone https://github.com/zara-shahid/construction_damage_chatbot.git
+cd construction-damage-chatbot
 pip install -r requirements.txt
-
-Set your Groq API key as an environment variable:
-
-export GROQ_API_KEY=your_key_here
-
-Then run:
-
+export GROQ_API_KEY=your_groq_api_key
 python app.py
 
-##🔐 Hugging Face Deployment
-
-Add your Groq API key as a secret named GROQ_API_KEY in your Space settings (Settings → Secrets).
-
-##🖼️ Example Use Case
-
-Upload an image of a cracked wall, and the bot replies with a full repair guide using civil engineering principles.
-
-##📁 File Structure
-
+📁 File Structure
+bash
+Copy
+Edit
 .
-├── app.py → Main app script
-├── requirements.txt → Python dependencies
-├── README.md → You’re here!
+├── app.py               # Gradio + LLM + Image classifier logic
+├── requirements.txt     # Python dependencies
+├── README.md            # You are here!
+🔐 API Key Security
+This project uses the GROQ_API_KEY secret securely via:
 
-##📜 License
+Hugging Face Secrets (for deployed version)
 
-MIT License — free to use and modify.
+Environment variable (for local use)
+
+Never expose your API key in code.
+
+📄 License
+MIT License — feel free to fork, modify, and use with attribution.
+
